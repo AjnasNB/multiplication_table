@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Table generater</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            
+            #mtable {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 30%;
+            }
+            #mtable td, #mtable th {
+              border: 1px solid #ddd;
+              padding: 8px;
+              }
+            #mtable tr:nth-child(even){background-color: #FFF8DC;}
+            #mtable tr:hover {background-color: #F5DEB3;}
+           
+        </style>
+    </head>
+    <body>
+        <div class="box">
+        <h1>Multiplication Table</h1>
+        <p>Enter a numer to get its multiplication table</p>
+        <label class="label">Enter Number:</label>
+        <div class="inputs">
+        <input type="number" id="number" />
+        <input type="button" value="generate" onclick="multiplicationTable()" /></div>
+        <br /><br /><br />
+        <div id="result"></div>
+    </div>
+        <script>
+            function multiplicationTable() {
+            var table;
+            table='<table id="mtable">';
+            var num=document.getElementById("number").value;
+            if(num==null || num=="")
+            num=5;
+               for(i=1;i<=10;i++){
+                  table+='<tr><td>'+num+'*'+i+'='+num*i+'</td></tr>';
+               }
+            table+='</table>';
+            document.getElementById("result").innerHTML = table;
+            }
+        </script>
+    </body>
+</html>
